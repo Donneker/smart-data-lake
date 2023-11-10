@@ -563,6 +563,7 @@
                         <jvmArgs>
                             <jvmArg>-Xms64m</jvmArg>
                             <jvmArg>-Xmx1024m</jvmArg>
+                            <jvmArg>--add-exports java.base/sun.nio.ch=ALL-UNNAMED</jvmArg>
                         </jvmArgs>
                         <compilerPlugins>
                             <!-- embedded scaladoc as annotations -->
@@ -754,6 +755,12 @@
                     <artifactId>scalatest-maven-plugin</artifactId>
                     <version>2.2.0</version>
                     <configuration>
+                        <argLine>
+                            --add-exports java.base/sun.nio.ch=ALL-UNNAMED
+                            --add-exports java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED
+                            --add-opens java.base/java.io=ALL-UNNAMED
+                            --add-opens java.base/sun.nio.cs=ALL-UNNAMED
+                        </argLine>
                         <reportsDirectory>
                             ${project.build.directory}/scalatest-reports
                         </reportsDirectory>
